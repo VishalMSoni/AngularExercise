@@ -1,0 +1,63 @@
+<div class="container form-custom"><br>
+  <form #userForm="ngForm" autocomplete="off" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label class="label-custom">*First Name</label>
+        <input type="text" #userFName="ngModel" [class.is-invalid]="userFName.invalid && userFName.touched"
+          class="form-control" [(ngModel)]="userModel.fname" name="fname" required>
+        <small class="text-danger" [class.d-none]="userFName.valid || userFName.untouched">Name is Required
+          !!!</small>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label class="label-custom">*Last Name</label>
+        <input type="text" #userLName="ngModel" [class.is-invalid]="userLName.invalid && userLName.touched"
+          class="form-control" [(ngModel)]="userModel.lname" name="lname" required>
+        <small class="text-danger" [class.d-none]="userLName.valid || userLName.untouched">Name is Required
+          !!!</small>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label class="label-custom">*Birth Date</label>
+        <input type="date" #userBDate="ngModel" [class.is-invalid]="userBDate.invalid && userBDate.touched"
+          class="form-control" [(ngModel)]="userModel.bdate" name="bdate" required>
+        <small class="text-danger" [class.d-none]="userBDate.valid || userBDate.untouched">Birth Date is
+          Required!!!</small>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label class="label-custom">*Phone number</label>
+        <input appCustomMobileNumber type="text" #userPhoneNum="ngModel" pattern="^\d{10}$" class="form-control"
+          [(ngModel)]="userModel.phoneNum" name="phoneNum" required>
+        <small class="text-danger" [class.d-none]="userPhoneNum.valid || userPhoneNum.untouched">Proper phone number is
+          Required !!!</small>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label class="label-custom">*Email</label>
+        <input type="email" #userEmail="ngModel"
+          pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+          [class.is-invalid]="userEmail.invalid && userEmail.touched" class="form-control" [(ngModel)]="userModel.email"
+          name="email" required>
+        <small class="text-danger" [class.d-none]="userEmail.valid || userEmail.untouched">Email is
+          Required !!!</small>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label class="label-custom">*Pincode</label>
+        <input type="number" #userPincode="ngModel" pattern="^\d{6}$"
+          [class.is-invalid]="userPincode.invalid && userPincode.touched" class="form-control"
+          [(ngModel)]="userModel.pincode" name="pincode" required>
+        <small class="text-danger" [class.d-none]="userPincode.valid || userPincode.untouched">Pincode is
+          Required !!!</small>
+      </div>
+    </div>
+    <hr>
+    <button [disabled]="userForm.form.invalid" class="btn btn-success" type="submit">Submit Data</button><br><br>
+  </form>
+</div>
+<br>

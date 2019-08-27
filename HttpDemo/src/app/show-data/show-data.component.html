@@ -1,0 +1,96 @@
+<div class="container-fluid">
+    <nav>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-2 search-custom">
+                <label style="font-size:20px;">Search it:</label>
+            </div>
+            <div class="col-md-3">
+                <input class="form-control" type="text" name="search" [(ngModel)]="filter">
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+    </nav><br>
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-custom">
+                <thead class="table-header">
+                    <tr>
+                        <th scope="col" (click)="sort('no')">
+                            No.
+                            <i class="fa" *ngIf="key =='no'" [ngClass]="{'fa-level-up':reverse,'fa-level-down':!reverse}"></i>
+                        </th>
+                        <th scope="col" (click)="sort('fname')">
+                            First Name
+                            <i class="fa" *ngIf="key =='fname'" [ngClass]="{'fa-level-up':reverse,'fa-level-down':!reverse}"></i>
+                        </th>
+                        <th scope="col" (click)="sort('lname')">
+                            Last Name
+                            <i class="fa" *ngIf="key =='lname'" [ngClass]="{'fa-level-up':reverse,'fa-level-down':!reverse}"></i>
+                        </th>
+                        <th scope="col" (click)="sort('bdate')">
+                            Birth Date
+                            <i class="fa" *ngIf="key =='bdate'" [ngClass]="{'fa-level-up':reverse,'fa-level-down':!reverse}"></i>
+                        </th>
+                        <th scope="col" (click)="sort('phoneNum')">
+                            Phone Number
+                            <i class="fa" *ngIf="key =='phoneNum'" [ngClass]="{'fa-level-up':reverse,'fa-level-down':!reverse}"></i>
+                        </th>
+                        <th scope="col" (click)="sort('email')">
+                            Email
+                            <i class="fa" *ngIf="key =='email'" [ngClass]="{'fa-level-up':reverse,'fa-level-down':!reverse}"></i>
+                        </th>
+                        <th scope="col" (click)="sort('pincode')">
+                            Pincode
+                            <i class="fa" *ngIf="key =='pincode'" [ngClass]="{'fa-level-up':reverse,'fa-level-down':!reverse}"></i>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <br>
+                    <tr *ngFor="let data of parentData | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 5, currentPage: p }; index as i">
+                        <th scope="row">{{data.id}}</th>
+                        <td>{{data.fname}}</td>
+                        <td>{{data.lname}}</td>
+                        <td>{{data.bdate}}</td>
+                        <td>{{data.phoneNum | customPhoneNum}}</td>
+                        <td>{{data.email}}</td>
+                        <td>{{data.pincode}}</td>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-success btn-custom" (click)="onUpdate(data.id)">
+                            Update Data
+                        </button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-danger btn-custom" (click)="setDeleteID(data.id, data.fname, data.lname)"
+                            data-toggle="modal" data-target="#deleteModal">
+                            Delete
+                        </button>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure want to delete an user {{fullName}}???
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" (click)="onDelete()" class="btn btn-primary">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <br>
+</div>
