@@ -1,0 +1,37 @@
+.top-bar a {
+  text-decoration: none;
+  color: white;
+}
+.top-bar a:hover {
+  color: white;
+}
+.top-bar a:active {
+  color: white;
+}
+.top-bar {
+  display: flex;
+  background-color: #7f325a;
+  color: white;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 55px;
+  position: fixed;
+  box-shadow: 1px 0.5px 6px 0px white;
+}
+.top-bar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+.top-bar li {
+  padding: 0 10px;
+}
+.menu {
+  font-size: 20px;
+}
+.button-signout {
+  padding: 3px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}

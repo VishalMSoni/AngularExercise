@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { DataService } from '../data.service';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../../data.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -37,7 +37,7 @@ export class ShowDataComponent implements OnInit {
     }
 
     onUpdate(i) {
-        this.router.navigate(['editData', i]);
+        this.router.navigate(['list-student/editData', i]);
     }
 
     onDelete() {

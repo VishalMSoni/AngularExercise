@@ -1,0 +1,12 @@
+.label-custom {
+    font-weight: bold;
+}
+
+.form-custom {
+    border: 2px solid green;
+    border-radius: 20px;
+}
+
+.app-custom {
+    text-decoration: underline;
+}

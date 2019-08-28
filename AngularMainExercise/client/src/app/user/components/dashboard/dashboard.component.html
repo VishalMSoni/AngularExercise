@@ -1,0 +1,35 @@
+<div class="containerMain">
+  <div class="container">
+    <h3 class="mb-3 header-dashboard">Select Data</h3>
+    <p-dropdown (onChange)="onSelectCountry($event)" [filter]=true [options]="countries" placeholder="Select a Country"
+      optionLabel="name" [showClear]="true"></p-dropdown>&nbsp;&nbsp;&nbsp;&nbsp;
+    <p-dropdown (onChange)="onSelectState($event)" [filter]=true [options]="states" placeholder="Select a State"
+      optionLabel="name" [showClear]="true"></p-dropdown>&nbsp;&nbsp;&nbsp;&nbsp;
+    <p-dropdown [filter]=true [options]="cities" placeholder="Select a City" optionLabel="name" [showClear]="true">
+    </p-dropdown>
+    <br>
+    <br>
+  </div>
+  <div id="demo" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+      <li *ngFor="let state of selectedListOfCities; let i = index" data-target="#demo" [attr.data-slide-to]="i"
+        [class.active]="selectedIndex === i" (click)="setIndex(i)"></li>
+    </ul>
+    <div class="carousel-inner">
+      <div *ngFor="let state of selectedListOfCities; let i = index;"
+        [ngClass]="i === 0 ? 'carousel-item active' : 'carousel-item'">
+        <img src={{state.image}} alt="/assets/img/logo.png">
+        <div class="carousel-caption">
+          <h3>{{state.name}}</h3>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#demo" data-slide="prev" (click)="prevImage()">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next" (click)="nextImage()">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+  <div *ngIf="err" class="noImageErrorDiv">No related images found.</div>
+</div>

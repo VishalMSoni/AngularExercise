@@ -1,15 +1,6 @@
 {
   "jsonData": [
     {
-      "id": 7,
-      "fname": "vishalasd",
-      "lname": "soni",
-      "bdate": "2019-08-24",
-      "phoneNum": "7417417415",
-      "email": "vms@gmail.com",
-      "pincode": 360003
-    },
-    {
       "id": 8,
       "fname": "AAA",
       "lname": "soni",
@@ -24,8 +15,17 @@
       "lname": "soni",
       "bdate": "2019-08-10",
       "phoneNum": "7417417415",
-      "email": "vms@gmail.com",
+      "email": "abc@g",
+      "pincode": 360003
+    },
+    {
+      "id": 10,
+      "fname": "AAAAAA",
+      "lname": "soni",
+      "bdate": "2019-08-16",
+      "phoneNum": "7417417415",
+      "email": "aqw@qwsasas",
       "pincode": 360003
     }
-  ] 
+  ]
 }
