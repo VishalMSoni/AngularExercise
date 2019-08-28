@@ -1,0 +1,23 @@
+thead>tr>th {
+    cursor: pointer;
+}
+
+.table-custom {
+    font-size: 13px;
+}
+
+.table-header {
+    color: whitesmoke;
+    font-size: 15px;
+    text-align: center;
+    background-color:  #73AD21;
+}
+
+.btn-custom {
+    font-size: 12px;
+}
+
+.search-custom {
+    font-weight: bold;
+    text-align: right;
+}
